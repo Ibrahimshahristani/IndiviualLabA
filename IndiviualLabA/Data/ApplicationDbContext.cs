@@ -7,35 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IndiviualLabA.Data
 {
-    public class Invoice
-    {
-        [Key]
-        public int InvoiceID { get; set; }
-        public string UserName { get; set; }
-        public DateTime Created { get; set; }
-        public decimal Total { get; set; }
 
-        // Parent.
-        public virtual CustomUser CustomnUser { get; set; }
-    }
 
-    public class CustomUser
-    {
-        [Key]
-        [Display(Name = "User Name")]
-        public string UserName { get; set; }
 
-        [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-
-        // Child
-        public virtual ICollection<Invoice> Invoices { get; set; }
-    }
 
     public class ApplicationDbContext : IdentityDbContext
     {
